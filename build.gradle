@@ -36,9 +36,13 @@ repositories {
         name = "sonatype"
         url = "https://oss.sonatype.org/content/repositories/snapshots/"
     }
+    maven {
+        name = "bdew"
+        url = "https://jenkins.bdew.net/maven"
+    }
 }
 
-version = "1.0-beta.1"
+version = "1.0.0-beta.1"
 group= "chaos234.mekanismadditions" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "mekanismadditions"
 
@@ -49,9 +53,9 @@ compileJava {
 }
 
 minecraft {
-    version = "1.10.2-12.18.1.2076"
+    version = "1.10.2-12.18.1.2014"
     runDir = "run"
-    mappings = "snapshot_20160518"
+    mappings = "snapshot_20160627"
 	useDepAts = true
     makeObfSourceJar = true
 }
@@ -67,8 +71,9 @@ artifacts {
 }
 
 dependencies {
-    deobfCompile "mcp.mobius.waila:Waila:1.7.0-B3_1.9.4"
-    deobfCompile "mezz.jei:jei_1.10.2:3.7.3.223"
+    //deobfCompile "mcp.mobius.waila:Waila:1.7.0-B3_1.9.4"
+    //deobfCompile "mezz.jei:jei_1.10.2:3.7.3.223"
+    compile "net.bdew.thirdparty:mekanism:1.10.2-9.2.0.2:api"
 }
 
 processResources
