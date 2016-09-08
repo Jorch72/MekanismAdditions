@@ -1,0 +1,14 @@
+[{
+    "modid": "mekanismadditions",
+    "name": "Mekanism Additions",
+    "description": "An Addon for Mekanism which will give you a bunch of new possibilities. Get the MA-Information-Device to get more information about how things are working.",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateURL": "",
+    "authorList": ["Chaos2341"],
+    "credits": "McJty for helping with setting up the workspace.",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+}]
