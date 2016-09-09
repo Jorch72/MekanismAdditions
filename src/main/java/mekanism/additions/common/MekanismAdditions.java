@@ -36,7 +36,7 @@ public class MekanismAdditions  implements IModule{
     /* Define some default vars */
     public static final String MODID = "mekanismadditions";
     public static final String MODNAME = "Mekansim Additions";
-    public static final String MODVERSION = "1.0.0";
+    public static final String MODVERSION = "9.2.0";
     public static Version versionNumber = new Version(1,0,0);
 
 
