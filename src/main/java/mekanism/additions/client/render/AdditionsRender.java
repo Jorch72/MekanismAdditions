@@ -15,7 +15,7 @@ import net.minecraftforge.fluids.FluidRegistry;
  */
 public class AdditionsRender extends MekanismRenderer {
 
-    private static String[] simpleSides = new String[] {"Bottom", "Top", "Front", "Back", "Left", "Right"};
+    public static String[] simpleSides = new String[] {"Bottom", "Top", "Front", "Back", "Left", "Right"};
 
     public static void init()
     {
@@ -24,25 +24,26 @@ public class AdditionsRender extends MekanismRenderer {
 
     @SubscribeEvent
     public void onStitch(TextureStitchEvent.Pre event) {
-        GasRegistry.getGas("enrichedwater").setIcon(event.map.registerIcon("mekanismadditions:liquid/LiquidEnrichedWater"));
-        GasRegistry.getGas("enrichedwatersnd").setIcon(event.map.registerIcon("mekanismadditions:liquid/LiquidEnrichedWaterSnd"));
-        GasRegistry.getGas("enrichedwaterrd").setIcon(event.map.registerIcon("mekanismadditions:liquid/LiquidEnrichedWaterRd"));
+        if(event.map.getTextureType() == 0) {
 
-        GasRegistry.getGas("dihydrogensulfid").setIcon(event.map.registerIcon("mekanismadditions:liquid/LiquidEnrichedDihydrogenSulfidGas"));
-        
-        GasRegistry.getGas("enricheddihydrogensulfid").setIcon(event.map.registerIcon("mekanismadditions:liquid/LiquidEnrichedDihydrogenSulfidGas"));
-        GasRegistry.getGas("enricheddihydrogensulfidsnd").setIcon(event.map.registerIcon("mekanismadditions:liquid/LiquidEnrichedDihydrogenSulfidSnd"));
-        GasRegistry.getGas("enricheddihydrogensulfidrd").setIcon(event.map.registerIcon("mekanismadditions:liquid/LiquidEnrichedDihydrogenSulfidRd"));
+            GasRegistry.getGas("enrichedwater").setIcon(event.map.registerIcon("mekanismadditions:liquid/LiquidEnrichedWater"));
+            GasRegistry.getGas("enrichedwatersnd").setIcon(event.map.registerIcon("mekanismadditions:liquid/LiquidEnrichedWaterSnd"));
+            GasRegistry.getGas("enrichedwaterrd").setIcon(event.map.registerIcon("mekanismadditions:liquid/LiquidEnrichedWaterRd"));
 
-        //secound way for heavy water
-        FluidRegistry.getFluid("enricheddihydrogensulfid").setIcons(event.map.registerIcon("mekanismadditions:liquid/LiquidEnrichedDihydrogenSulfidGas"));
-        FluidRegistry.getFluid("enricheddihydrogensulfidsnd").setIcons(event.map.registerIcon("mekanismadditions:liquid/LiquidEnrichedDihydrogenSulfidSnd"));
-        FluidRegistry.getFluid("enricheddihydrogensulfidrd").setIcons(event.map.registerIcon("mekanismadditions:liquid/LiquidEnrichedDihydrogenSulfidRd"));
+            GasRegistry.getGas("enricheddihydrogensulfid").setIcon(event.map.registerIcon("mekanismadditions:liquid/LiquidEnrichedDihydrogenSulfidGas"));
+            GasRegistry.getGas("enricheddihydrogensulfidsnd").setIcon(event.map.registerIcon("mekanismadditions:liquid/LiquidEnrichedDihydrogenSulfidSnd"));
+            GasRegistry.getGas("enricheddihydrogensulfidrd").setIcon(event.map.registerIcon("mekanismadditions:liquid/LiquidEnrichedDihydrogenSulfidRd"));
 
-        FluidRegistry.getFluid("enrichedwater").setIcons(event.map.registerIcon("mekanismadditions:liquid/LiquidEnrichedWater"));
-        FluidRegistry.getFluid("enrichedwatersnd").setIcons(event.map.registerIcon("mekanismadditions:liquid/LiquidEnrichedWaterSnd"));
-        FluidRegistry.getFluid("enrichedwaterrd").setIcons(event.map.registerIcon("mekanismadditions:liquid/LiquidEnrichedWaterRd"));
-         //end-secound way for heavy water
+            //secound way for heavy water
+            FluidRegistry.getFluid("enricheddihydrogensulfid").setIcons(event.map.registerIcon("mekanismadditions:liquid/LiquidEnrichedDihydrogenSulfidGas"));
+            FluidRegistry.getFluid("enricheddihydrogensulfidsnd").setIcons(event.map.registerIcon("mekanismadditions:liquid/LiquidEnrichedDihydrogenSulfidSnd"));
+            FluidRegistry.getFluid("enricheddihydrogensulfidrd").setIcons(event.map.registerIcon("mekanismadditions:liquid/LiquidEnrichedDihydrogenSulfidRd"));
+
+            FluidRegistry.getFluid("enrichedwater").setIcons(event.map.registerIcon("mekanismadditions:liquid/LiquidEnrichedWater"));
+            FluidRegistry.getFluid("enrichedwatersnd").setIcons(event.map.registerIcon("mekanismadditions:liquid/LiquidEnrichedWaterSnd"));
+            FluidRegistry.getFluid("enrichedwaterrd").setIcons(event.map.registerIcon("mekanismadditions:liquid/LiquidEnrichedWaterRd"));
+            //end-secound way for heavy water
+        }
 
     }
 

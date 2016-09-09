@@ -12,7 +12,6 @@ public class AdditionsFluids {
         GasRegistry.register(new Gas("enrichedwater")).registerFluid();
         GasRegistry.register(new Gas("enrichedwatersnd")).registerFluid();
         GasRegistry.register(new Gas("enrichedwaterrd")).registerFluid();
-        GasRegistry.register(new Gas("dihydrogensulfid")).registerFluid();
 
         GasRegistry.register(new Gas("enricheddihydrogensulfid")).registerFluid();
         GasRegistry.register(new Gas("enricheddihydrogensulfidsnd")).registerFluid();

@@ -6,6 +6,7 @@ import mekanism.common.item.ItemMekanism;
 import mekanism.common.util.LangUtils;
 import mekanism.common.util.MekanismUtils;
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentText;
@@ -65,5 +66,10 @@ public class ItemInformationTab extends ItemMekanism {
         }
 
         return itemstack;
+    }
+
+    @Override
+    public void registerIcons(IIconRegister register) {
+            itemIcon = register.registerIcon("mekanismadditions:" + getUnlocalizedName().replace("item.", ""));
     }
 }
