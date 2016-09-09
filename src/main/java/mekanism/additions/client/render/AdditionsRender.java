@@ -24,7 +24,7 @@ public class AdditionsRender extends MekanismRenderer {
 
     @SubscribeEvent
     public void onStitch(TextureStitchEvent.Pre event) {
-        GasRegistry.getGas("enrichedwater").setIcon(event.map.registerIcon("mekanismadditions:/liquid/LiquidEnrichedWater"));
+        GasRegistry.getGas("enrichedwater").setIcon(event.map.registerIcon("mekanismadditions:liquid/LiquidEnrichedWater"));
         GasRegistry.getGas("enrichedwatersnd").setIcon(event.map.registerIcon("mekanismadditions:liquid/LiquidEnrichedWaterSnd"));
         GasRegistry.getGas("enrichedwaterrd").setIcon(event.map.registerIcon("mekanismadditions:liquid/LiquidEnrichedWaterRd"));
 

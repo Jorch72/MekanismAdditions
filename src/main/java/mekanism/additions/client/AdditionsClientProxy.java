@@ -12,7 +12,7 @@ import net.minecraft.item.ItemStack;
 public class AdditionsClientProxy extends AdditionsCommonProxy{
     @Override
     public void registerItemRenders() {
-        MekanismRenderer.renderItem(new ItemStack(AdditionsItems.InformationTab, 1));
+        AdditionsRender.renderItem(new ItemStack(AdditionsItems.InformationTab, 1));
     }
 
     @Override
