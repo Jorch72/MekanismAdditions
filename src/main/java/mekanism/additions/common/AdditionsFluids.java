@@ -9,7 +9,7 @@ import mekanism.api.gas.GasRegistry;
 public class AdditionsFluids {
     public static void register() {
 
-        //GasRegistry.register(new Gas("enrichedwater")).registerFluid();
+        GasRegistry.register(new Gas("enrichedwater")).registerFluid();
         GasRegistry.register(new Gas("enrichedwatersnd")).registerFluid();
         GasRegistry.register(new Gas("enrichedwaterrd")).registerFluid();
         GasRegistry.register(new Gas("dihydrogensulfid")).registerFluid();
