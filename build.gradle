@@ -1,3 +1,4 @@
+defaultTasks 'fullBuild'
 
 // For those who want the bleeding edge
 buildscript {
@@ -16,15 +17,19 @@ buildscript {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
     }
 }
-apply plugin: 'net.minecraftforge.gradle.forge'
-apply plugin: 'maven'
+
 apply plugin: 'idea'
 
-repositories {
-    maven { // The repo from which to get waila
-        name "Mobius Repo"
-        url "http://mobiusstrip.eu/maven"
+idea {
+    module {
+        // For some reason this is necessary for IDEA 2014 workspaces to recognize assets
+        inheritOutputDirs = true
     }
+}
+
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+repositories {
     maven { // JEI
         url "http://dvs1.progwml6.com/files/maven"
     }
@@ -40,58 +45,76 @@ repositories {
         name = "bdew"
         url = "https://jenkins.bdew.net/maven"
     }
+    maven {
+        name 'amadornes'
+        url "http://maven.amadornes.com/"
+    }
 }
 
-version = "1.0.0-beta.1"
-group= "chaos234.mekanismadditions" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "mekanismadditions"
+// Define properties file
+ext.configFile = file "build.properties"
 
-sourceCompatibility = targetCompatibility = "1.8"
-
-compileJava {
-    sourceCompatibility = targetCompatibility = "1.8"
+configFile.withReader {
+    // Load config. It shall from now be referenced as simply config or project.config
+    def prop = new Properties()
+    prop.load(it)
+    project.ext.config = new ConfigSlurper().parse prop
 }
+
+version = "${config.minecraft_version}-${config.mod_version}." + (System.env.BUILD_NUMBER ?: "homebaked")
+group = "mekanism.additions"
+archivesBaseName = "MekanismAdditions"
+libsDirName = "../output"
+distsDirName = "../output"
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
 
 minecraft {
-    version = "1.10.2-12.18.1.2014"
+    version = config.minecraft_version + "-" + config.forge_version
+    mappings = "${config.mappings_version}"
     runDir = "run"
-    mappings = "snapshot_20160627"
-	useDepAts = true
-    makeObfSourceJar = true
-}
-
-task deobfJar(type: Jar) {
-    from sourceSets.main.output
-    classifier = 'dev'
-}
-
-artifacts {
-    archives sourceJar
-    archives deobfJar
+    useDepAts = true
 }
 
 dependencies {
-    //deobfCompile "mcp.mobius.waila:Waila:1.7.0-B3_1.9.4"
-    //deobfCompile "mezz.jei:jei_1.10.2:3.7.3.223"
+    deobfCompile "mezz.jei:jei_1.10.2:3.7.3.223"
     compile "net.bdew.thirdparty:mekanism:1.10.2-9.2.0.2:api"
 }
 
-processResources
-{
-    // this will ensure that this task is redone when the versions change.
-    inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
-
-    // replace stuff in mcmod.info, nothing else
-    from(sourceSets.main.resources.srcDirs) {
-        include 'mcmod.info'
-                
-        // replace version and mcversion
-        expand 'version':project.version, 'mcversion':project.minecraft.version
-    }
-        
+processResources {
     // copy everything else, thats not the mcmod.info
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
+        exclude '**/*.blend*'
     }
 }
+
+
+task additionsJar(type: Jar) {
+    baseName = 'MekanismAdditions'
+
+    from('etc/additions') {
+        include '*.info'
+        expand 'version':config.mod_version,'mc_version':config.minecraft_version,'mcmp_version':config.mcmp_version
+    }
+
+    from zipTree(jar.outputs.getFiles().getSingleFile()).matching {
+        include 'mekanism/additions/**', 'assets/mekanismadditions/**'
+    }
+}
+
+additionsJar.dependsOn('reobfJar')
+
+
+task releaseJars(type: Copy) {
+    from additionsJar
+    rename '-(.*)jar', '.jar'
+    rename '-(.*)zip', '.zip'
+    into '.'
+}
+
+task fullBuild(type: Delete) {
+    delete jar
+}
+
+fullBuild.dependsOn('releaseJars')
