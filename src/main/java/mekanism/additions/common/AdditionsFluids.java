@@ -11,7 +11,6 @@ public class AdditionsFluids {
         GasRegistry.register(new Gas("enrichedwater","mekanismadditions:blocks/liquids/LiquidEnrichedWater")).registerFluid();
         GasRegistry.register(new Gas("enrichedwatersnd","mekanismadditions:blocks/liquids/LiquidEnrichedWaterSnd")).registerFluid();
         GasRegistry.register(new Gas("enrichedwaterrd","mekanismadditions:blocks/liquids/LiquidEnrichedWaterRd")).registerFluid();
-        GasRegistry.register(new Gas("dihydrogensulfid","mekanismadditions:blocks/liquids/LiquidEnrichedDihydrogenSulfidGas")).registerFluid();
 
         GasRegistry.register(new Gas("enricheddihydrogensulfid","mekanismadditions:blocks/liquids/LiquidEnrichedDihydrogenSulfidGas")).registerFluid();
         GasRegistry.register(new Gas("enricheddihydrogensulfidsnd","mekanismadditions:blocks/liquids/LiquidEnrichedDihydrogenSulfidSnd")).registerFluid();

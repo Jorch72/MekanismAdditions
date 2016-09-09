@@ -1,0 +1,20 @@
+//gasses
+gas.enricheddihydrogensulfid=Angereicherter Schwefelwasserstoff I (Gas)
+gas.enricheddihydrogensulfidsnd=Angereicherter Schwefelwasserstoff II (Gas)
+gas.enricheddihydrogensulfidrd=Angereicherter Schwefelwasserstoff III (Gas)
+
+gas.enrichedwater=Angereichertes Wasser I (Gas)
+gas.enrichedwatersnd=Angereichertes Wasser II (Gas)
+gas.enrichedwaterrd=Angereichertes Wasser III (Gas)
+
+//fluids
+fluid.enricheddihydrogensulfid=Angereicherter flüssiger Schwefelwasserstoff I
+fluid.enricheddihydrogensulfidsnd=Angereicherter flüssiger Schwefelwasserstoff II
+fluid.enricheddihydrogensulfidrd=Angereicherter flüssiger Schwefelwasserstoff III
+
+fluid.enrichedwater=Angereichertes Wasser
+fluid.enrichedwatersnd=Angereichertes Wasser II
+fluid.enrichedwaterrd=Angereichertes Wasser III
+
+//items
+item.InformationTab.name=Mekanism Informatiostablet (für Mekanism und seine Module)

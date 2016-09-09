@@ -1,0 +1,20 @@
+//gasses
+gas.enricheddihydrogensulfid=Enriched Dihydrogensulfid I (gaseous)
+gas.enricheddihydrogensulfidsnd=Enriched Dihydrogensulfid II (gaseous)
+gas.enricheddihydrogensulfidrd=Enriched Dihydrogensulfid III (gaseous)
+
+gas.enrichedwater=Enriched Water I (gaseous)
+gas.enrichedwatersnd=Enriched Water II (gaseous)
+gas.enrichedwaterrd=Enriched Water III (gaseous)
+
+//fluids
+fluid.enricheddihydrogensulfid=Liquid Enriched Dihydrogensulfid I
+fluid.enricheddihydrogensulfidsnd=Liquid Enriched Dihydrogensulfid II
+fluid.enricheddihydrogensulfidrd=Liquid Enriched Dihydrogensulfid III
+
+fluid.enrichedwater=Enriched Water I
+fluid.enrichedwatersnd=Enriched Water II
+fluid.enrichedwaterrd=Enriched Water III
+
+//items
+item.InformationTab.name=Mekanism Information Tablet (for Mekanism and it's Modules)
