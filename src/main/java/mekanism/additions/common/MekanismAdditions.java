@@ -100,8 +100,8 @@ public class MekanismAdditions  implements IModule{
             Mekanism.configuration.save();
         }
 
-        AdditionsItems.initializeItems();
-        AdditionsItems.register();
+        /*AdditionsItems.initializeItems();
+        AdditionsItems.register();*/
         AdditionsFluids.register();
     }
 
